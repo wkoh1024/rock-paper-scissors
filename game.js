@@ -54,40 +54,6 @@ function playGame() {
         else {
             console.log(result);
         }
-        // switch (humanChoice) {
-        //     case ('scissors'):
-        //         if (computerSelection === 'rock') {
-        //             console.log(lossText());
-        //         }
-        //         else if (computerSelection === 'paper') {
-        //             console.log(winText());
-        //         }
-        //         else
-        //             console.log("Tie.");
-        //         break;
-        //     case ('rock'):
-        //         if (computerSelection === 'paper') {
-        //             console.log(lossText());
-        //         }
-        //         else if (computerSelection === 'scissors') {
-        //             console.log(winText());
-        //         }
-        //         else
-        //             console.log("Tie.");
-        //         break;
-        //     case ('paper'):
-        //         if (computerSelection === 'rock') {
-        //             console.log(winText());
-        //         }
-        //         else if (computerSelection === 'scissors') {
-        //             console.log(lossText());
-        //         }
-        //         else
-        //             console.log("Tie.");
-        //         break;
-        //     default:
-        //         return "Invalid choice. Try again."
-        // }
     }
     for (let i = 0; i < 5; i++) {
         playRound(getHumanChoice(), getComputerChoice());
