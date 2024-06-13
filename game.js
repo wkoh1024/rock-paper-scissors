@@ -44,7 +44,7 @@ function playGame() {
             'rock' : { 'scissors' : winText, 'paper' : lossText, 'rock' : 'Tie.'},
             'scissors' : { 'paper' : winText, 'rock' : lossText, 'scissors' : 'Tie.'},
             'paper' : { 'rock' : winText, 'scissors' : lossText, 'paper' : 'Tie.'}
-        }
+        };
         result = outcomes[humanChoice][computerSelection];
         // checks if result is helper function and only calls them officially if they are
         // otherwise, we just log, which will always be 'Tie.'
