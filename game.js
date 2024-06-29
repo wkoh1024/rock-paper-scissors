@@ -1,5 +1,5 @@
-let humanScore = 0;
-let computerScore = 0;
+const body = document.querySelector("body");
+
 
 function getComputerChoice() {
     let computerChoice = Math.random();
@@ -25,6 +25,8 @@ function getHumanChoice() {
 }
 
 function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
     function playRound(humanChoice, computerSelection) {
         // loss and win text function reusability
         function lossText() {
@@ -55,9 +57,9 @@ function playGame() {
             console.log(result);
         }
     }
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
-    }
+    // for (let i = 0; i < 5; i++) {
+    //     playRound(getHumanChoice(), getComputerChoice());
+    // }
     console.log("Final Scores\n" + 
         "Player Score: " + humanScore + "\n" + 
         "Computer Score: " + computerScore
