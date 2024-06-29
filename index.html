@@ -3,18 +3,25 @@
     <head>
         <meta charset="utf-8">
         <title>Rock Paper Scissors!</title>
+        <!-- meta tag necessary to render properly on mobile -->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./styles.css">
     </head>
 
     <body>
+        
+        <div class="footer credit">icon by <a href="https://icons8.com">Icons8</a></div>
         <h1>Rock, Paper, Scissors!</h1>
+        <p>First to 5 times wins!</p>
+        <div class="scoreboard">
+            <h3 id="playerScore" class="score">Player Score: 0</h3>
+            <h3 id="cpuScore" class="score">CPU Score: 0</h3>
+        </div>
         <div class="playerOptions">
             <button id="rock" class="option"><img src="https://img.icons8.com/?size=100&id=44378&format=png&color=000000"></button>
             <button id="paper" class="option"><img src="https://img.icons8.com/?size=100&id=2727&format=png&color=000000"></button>
             <button id="scissors" class="option"><img src="https://img.icons8.com/?size=100&id=44376&format=png&color=000000"></button>
         </div>
-        
-        <div id="footer credit">icon by <a href="https://icons8.com">Icons8</a></div>
         <script src="game.js"></script>
     </body>
 </html>
