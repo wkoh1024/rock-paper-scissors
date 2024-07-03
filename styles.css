@@ -12,7 +12,7 @@ p {
     text-align: center;
 }
 
-.playerOptions {
+.humanOptions {
     display: flex;
     height: 100%;
     width: 100%;
@@ -39,12 +39,24 @@ p {
     background-color: #808080;
 }
 
+#rock:active {
+    background-color: #666666;
+}
+
 #paper {
     background-color: #ADD8E6;
 }
 
+#paper:active {
+    background-color: #87CEEB; 
+}
+
 #scissors {
     background-color: #FF6347;
+}
+
+#scissors:active {
+    background-color: #FF4500;
 }
 
 h1 {
@@ -61,8 +73,9 @@ h3 {
     height: 0px;
 }
 
+/* changes options to column instead of row once viewport less than 800px wide */
 @media screen and (max-width: 800px) {
-    .playerOptions {
+    .humanOptions {
         flex-direction: column;
         align-items: center;
     }

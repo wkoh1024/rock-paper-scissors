@@ -1,4 +1,15 @@
 const body = document.querySelector("body");
+const playerOptions = document.querySelectorAll(".option");
+const scoreboard = document.querySelector(".scoreboard");
+const humanScore = document.querySelector("#humanScore");
+const computerScore = document.querySelector("#computerScore");
+const humanScoreText = "Human Score: ";
+const computerScoreText = "Computer Score: ";
+const tieOrWinnerText = document.querySelector("#tieText");
+tieOrWinnerText.textContent = "Tie!"
+
+tieOrWinnerText.style.display = "none";
+
 
 
 function getComputerChoice() {
@@ -15,56 +26,40 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let input = prompt("Pick: rock, paper, scissors");
-    input = input.toLowerCase();
-    while (input !== 'scissors' && input !== 'rock' && input !== 'paper') {
-        input = prompt("Invalid input! Try again. Pick: rock, paper, scissors");
-        input = input.toLowerCase();
-    }
-    return input;
+    playerOptions.forEach((button) => {
+        button.addEventListener("click", () => {
+            return button.id;
+        });
+    });
 }
 
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
-    function playRound(humanChoice, computerSelection) {
+    function playRound(humanChoice, computerChoice) {
         // loss and win text function reusability
-        function lossText() {
+        function loss() {
             computerScore++;
-            return "You lose! " + computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1) +
-            " beats " + humanChoice.charAt(0).toUpperCase()+ humanChoice.slice(1);
+            computerScore.textContent = computerScoreText + computerScore;
         }
-        function winText() {
+        function win() {
             humanScore++;
-            return "You win! " + humanChoice.charAt(0).toUpperCase()+ humanChoice.slice(1) +
-            " beats " + computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+            humanScore.textContent = humanScoreText + humanScore;
         }
-        console.log("Player Score: " + humanScore + "\nComputer Score: " + computerScore)
+        function tie(){
+            tieOrWinnerText.style.display = "none";
+        }
         // map used to navigate responses; function itself not called since they would be called 
         // immediately so function names stored instead
         const outcomes = {
-            'rock' : { 'scissors' : winText, 'paper' : lossText, 'rock' : 'Tie.'},
-            'scissors' : { 'paper' : winText, 'rock' : lossText, 'scissors' : 'Tie.'},
-            'paper' : { 'rock' : winText, 'scissors' : lossText, 'paper' : 'Tie.'}
+            'rock' : { 'scissors' : win, 'paper' : loss, 'rock' : tie},
+            'scissors' : { 'paper' : win, 'rock' : loss, 'scissors' : tie},
+            'paper' : { 'rock' : win, 'scissors' : loss, 'paper' : tie}
         };
-        result = outcomes[humanChoice][computerSelection];
-        // checks if result is helper function and only calls them officially if they are
-        // otherwise, we just log, which will always be 'Tie.'
-        if (typeof result === 'function') {
-            console.log(result());
-        }
-        else {
-            console.log(result);
-        }
+        result = outcomes[humanChoice][computerChoice];
+        result();
     }
-    // for (let i = 0; i < 5; i++) {
-    //     playRound(getHumanChoice(), getComputerChoice());
-    // }
-    console.log("Final Scores\n" + 
-        "Player Score: " + humanScore + "\n" + 
-        "Computer Score: " + computerScore
-    )
+
 
 }
-
 playGame();
